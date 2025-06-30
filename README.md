@@ -1,2 +1,48 @@
-# DebianTestingLXC
-Debian testing LXC template for Proxmox
+# Debian Testing LXC Template (Proxmox-ready)
+
+This is a minimal Debian **testing** LXC template for Proxmox VE, built by upgrading the official `debian-12-standard` container to the current `testing` release.
+
+## Features
+
+- Based on official Proxmox Debian 12 template  
+- Upgraded to Debian testing (rolling release)  
+- Cleaned, trimmed, compressed with zstd  
+- No cloud-init, no unnecessary packages  
+- Logs, docs, locales, APT cache stripped  
+ 
+## Usage
+
+1. Upload the `.tar.zst` file to your Proxmox node:
+
+   ```
+   /var/lib/vz/template/cache/
+   ```
+
+2. Create a container from the template from the Proxmox UI, or by using this commandline:
+
+   ```bash
+   pct create <vmid> local:vztmpl/debian-testing-amd64.tar.zst --rootfs local-lvm:8 --hostname my-ct
+   ```
+
+   Adjust `<vmid>`, storage, and hostname as needed.
+
+## ⚠️ Notes
+
+- Compressed with `zstd -19 --long=27` for Proxmox compatibility  
+- You can customize further after container creation  
+- This is not an official template — use at your own discretion
+
+## Build Info
+
+Built manually in a chroot using the following steps:
+
+- Extracted base Proxmox Debian 12 LXC template
+- Chrooted and upgraded to testing via `apt full-upgrade`
+- Cleaned system and compressed to `.tar.zst`
+
+---
+License
+
+This script is provided as-is under the GPL-3.0 License. See LICENSE file for details.
+
+Feel free to customize and report issues or change requests.
