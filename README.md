@@ -12,13 +12,17 @@ This is a minimal Debian **testing** LXC template for Proxmox VE, built by upgra
  
 ## Usage
 
-1. Upload the `.tar.zst` file to your Proxmox node:
+Because of the max 100MB filesize limit imposed by Github I had to upload the template to archive.org.
+
+1. Download the template https://archive.org/download/debian-testing-amd64.tar/debian-testing-amd64.tar.zst
+
+2. Upload the `.tar.zst` file to your Proxmox node:
 
    ```
    /var/lib/vz/template/cache/
    ```
 
-2. Create a container from the template from the Proxmox UI, or by using this commandline:
+3. Create a container from the template from the Proxmox UI, or by using this commandline:
 
    ```bash
    pct create <vmid> local:vztmpl/debian-testing-amd64.tar.zst --rootfs local-lvm:8 --hostname my-ct
