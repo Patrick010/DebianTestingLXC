@@ -1,6 +1,6 @@
 # Debian Testing LXC Template for Proxmox
 
-This is a minimal Debian **testing** LXC template for Proxmox VE, built by upgrading the official `debian-12-standard` container to the current `testing` release.
+This is a minimal Debian **testing** LXC template for Proxmox VE, built by upgrading the official `debian-12-standard_12.7-1_amd64.tar.zst` container to the current `testing` release.
 
 ## Features
 
